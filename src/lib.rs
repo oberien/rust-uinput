@@ -8,10 +8,14 @@ extern crate uinput_sys as ffi;
 extern crate nix;
 
 #[macro_use]
-extern crate custom_derive;
+extern crate macro_attr;
 
 #[macro_use]
 extern crate enum_derive;
+
+extern crate serde;
+#[macro_use]
+extern crate serde_derive;
 
 #[cfg(feature = "udev")]
 extern crate libudev as udev;

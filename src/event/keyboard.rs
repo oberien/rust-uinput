@@ -3,7 +3,7 @@ use ffi::*;
 use {Event};
 use super::{Kind, Code, Press, Release};
 
-#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug)]
+#[derive(Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum Keyboard {
 	All,
 	Key(Key),
@@ -52,8 +52,8 @@ impl Code for Keyboard {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(KeyVariants))]
+macro_attr! {
+	#[derive(Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(KeyVariants))]
 	pub enum Key {
 		Reserved,
 		Esc,
@@ -284,8 +284,8 @@ impl Code for Key {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(KeyPadVariants))]
+macro_attr! {
+	#[derive(Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(KeyPadVariants))]
 	pub enum KeyPad {
 		Asterisk,
 		_7,
@@ -356,8 +356,8 @@ impl Code for KeyPad {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(MiscVariants))]
+macro_attr! {
+	#[derive(Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(MiscVariants))]
 	pub enum Misc {
 		ZenkakuHankaku,
 		ND102,
@@ -848,8 +848,8 @@ impl Code for Misc {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(FunctionVariants))]
+macro_attr! {
+	#[derive(Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(FunctionVariants))]
 	pub enum Function {
 		Press,
 		Esc,
@@ -918,8 +918,8 @@ impl Code for Function {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(BrailleVariants))]
+macro_attr! {
+	#[derive(Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(BrailleVariants))]
 	pub enum Braille {
 		Dot1,
 		Dot2,
@@ -966,8 +966,8 @@ impl Code for Braille {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(NumericVariants))]
+macro_attr! {
+	#[derive(Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(NumericVariants))]
 	pub enum Numeric {
 		_0,
 		_1,
@@ -1026,8 +1026,8 @@ impl Code for Numeric {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(TouchPadVariants))]
+macro_attr! {
+	#[derive(Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(TouchPadVariants))]
 	pub enum TouchPad {
 		Toggle,
 		On,
@@ -1060,8 +1060,8 @@ impl Code for TouchPad {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(CameraVariants))]
+macro_attr! {
+	#[derive(Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(CameraVariants))]
 	pub enum Camera {
 		ZoomIn,
 		ZoomOut,
@@ -1102,8 +1102,8 @@ impl Code for Camera {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(AttendantVariants))]
+macro_attr! {
+	#[derive(Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(AttendantVariants))]
 	pub enum Attendant {
 		On,
 		Off,
@@ -1136,8 +1136,8 @@ impl Code for Attendant {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(InputAssistVariants))]
+macro_attr! {
+	#[derive(Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(InputAssistVariants))]
 	pub enum InputAssist {
 		Prev,
 		Next,

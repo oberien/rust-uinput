@@ -38,8 +38,8 @@ impl Code for Absolute {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(PositionVariants))]
+macro_attr! {
+	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(PositionVariants))]
 	pub enum Position {
 		X,
 		Y,
@@ -77,8 +77,8 @@ impl Code for Position {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(WheelVariants))]
+macro_attr! {
+	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(WheelVariants))]
 	pub enum Wheel {
 		Throttle,
 		Rudder,
@@ -114,8 +114,8 @@ impl Code for Wheel {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(HatVariants))]
+macro_attr! {
+	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(HatVariants))]
 	pub enum Hat {
 		X0,
 		Y0,
@@ -157,8 +157,8 @@ impl Code for Hat {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(DigiVariants))]
+macro_attr! {
+	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(DigiVariants))]
 	pub enum Digi {
 		Pressure,
 		Distance,
@@ -196,8 +196,8 @@ impl Code for Digi {
 	}
 }
 
-custom_derive! {
-	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants(MultiVariants))]
+macro_attr! {
+	#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, IterVariants!(MultiVariants))]
 	pub enum Multi {
 		Slot,
 		TouchMajor,
